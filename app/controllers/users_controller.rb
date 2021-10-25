@@ -14,6 +14,11 @@ class UsersController < ApplicationController
         render json: { error: 'failed to create user' }, status: :unprocessable_entity
       end
     end
+
+    # def index 
+    #     users = User.all
+    #     render json: users
+    # end
   
     private
   
