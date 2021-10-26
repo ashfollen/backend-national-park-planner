@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     private 
 
     def reservation_params 
-        params.permit(:name, :category, :park, :start_date, :end_date, :user_id)
+        params.permit(:name, :category, :park, :start, :end, :user_id)
     end
 
     def render_unprocessable_entity_response(exception)
