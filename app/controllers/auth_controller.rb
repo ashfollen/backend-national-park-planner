@@ -1,4 +1,4 @@
-class AuthController < ApplicationController
+class Api::V1::AuthController < ApplicationController
     skip_before_action :authorized, only: [:create, :auto_login]
 
   def create
@@ -13,11 +13,11 @@ class AuthController < ApplicationController
     end
   end
 
-  def auto_login
-    @token = params[:token]
-    user = User.find(JWT.decode(@token, "my_s3cr3t", true, algorithm: 'HS256')[0]["user_id"])
-    render json: user
-  end
+#   def auto_login
+#     @token = params[:token]
+#     user = User.find(JWT.decode(@token, "my_s3cr3t", true, algorithm: 'HS256')[0]["user_id"])
+#     render json: user
+#   end
 
   private
 
