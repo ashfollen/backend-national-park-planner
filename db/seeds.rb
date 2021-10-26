@@ -1,5 +1,6 @@
 puts "Deleting old data..."
 User.destroy_all
+Reservation.destroy_all
 
 puts 
 puts "Seeding Users..."

@@ -1,3 +1,3 @@
 class ReservationSerializer < ActiveModel::Serializer
-    attributes :name, :category, :park, :start, :end, :user_id
+    attributes :name, :category, :park, :start, :end, :user_id, :id
   end
