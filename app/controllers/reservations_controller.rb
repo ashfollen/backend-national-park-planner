@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        reservations = Reservation.all 
+        reservations = Reservation.all.order("start ASC") 
         render json: reservations
     end
 
@@ -11,10 +11,20 @@ class ReservationsController < ApplicationController
         render json: reservation, status: :created
     end 
 
+    def destroy 
+        reservation = find_reservation
+        reservation.destroy
+        head :no_content
+    end 
+
     private 
 
     def reservation_params 
-        params.permit(:name, :category, :park, :start_date, :end_date, :user_id)
+        params.permit(:title, :category, :start, :end, :user_id)
+    end
+
+    def find_reservation
+        Reservation.find(params[:id])
     end
 
     def render_unprocessable_entity_response(exception)
