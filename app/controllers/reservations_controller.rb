@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
     private 
 
     def reservation_params 
-        params.permit(:name, :category, :start, :end, :user_id)
+        params.permit(:title, :category, :start, :end, :user_id)
     end
 
     def find_reservation
